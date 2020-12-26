@@ -1,3 +1,3 @@
-# Bumblebee
+# Good guys
 
-![Bumblebee image](./docs/good_guy.png)
+![Good guy image](./docs/good_guy.png)
