@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "eyecu_good_guys"
-version = "0.1.2"
+version = "0.1.3"
 description = ""
 authors = ["Oguz Vuruskaner <ovuruska@outlook.com>"]
 packages = [
@@ -9,7 +9,7 @@ packages = [
 
 [tool.poetry.dependencies]
 python = "^3.9"
-torch  = "^1.19.0"
+torch  = "^1.14.0"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"
