@@ -1,0 +1,3 @@
+from .test_Inception import TestInception
+from .test_InceptionMerge import TestInceptionMerge
+from .test_SpatialMaxPooling import TestSpatialMaxPooling
