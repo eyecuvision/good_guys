@@ -12,15 +12,15 @@ class TestInception(TestCase):
         DIM = 16
 
         #Single batch training
-        shape = (1,FILTER_SIZE,DIM,16)
+        shape = (1,FILTER_SIZE,DIM,DIM)
         inp = torch.randn((shape))
 
         inception = Inception(FILTER_SIZE,FILTER_SIZE)
         res = inception(inp)
-        expected_shape = shape
+        expected_shape = (1,FILTER_SIZE,DIM//2,DIM//2)
         self.assertEqual(res.shape, expected_shape)
 
-        shape = (1, FILTER_SIZE, DIM//2, DIM//2)
+        shape = (1, FILTER_SIZE, DIM, DIM)
         inp = torch.randn((shape))
 
         inception = Inception(FILTER_SIZE, FILTER_SIZE*4)
@@ -35,5 +35,5 @@ class TestInception(TestCase):
 
         inception = Inception(FILTER_SIZE, FILTER_SIZE * 4)
         res = inception(inp)
-        expected_shape = (BATCH_SIZE, FILTER_SIZE * 4, DIM//2, 16//2)
+        expected_shape = (BATCH_SIZE, FILTER_SIZE * 4, DIM//2, DIM//2)
         self.assertEqual(res.shape, expected_shape)
