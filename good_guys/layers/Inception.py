@@ -16,7 +16,10 @@ class Inception(N.Module):
             N.Conv2d(in_filters, in_filters, 1),
             N.Conv2d(in_filters, out_filters // 4, 5, 2,2),
         )
-        self.x4 = N.MaxPool2d(3,2,1)
+        self.x4 = N.Sequential(
+            N.Conv2d(in_filters, in_filters, 1),
+            N.Conv2d(in_filters, out_filters // 4, 3, 2,3,dilation=3),
+        )
 
 
     def forward(self,x):
