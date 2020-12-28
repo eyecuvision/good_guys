@@ -15,8 +15,10 @@ class InceptionMerge(N.Module):
             N.Conv2d(in_filters, in_filters, 1),
             N.Conv2d(in_filters, 1, 5, 2,2),
         )
-        self.x4 = SpatialMaxPooling()
-        
+        self.x4 = N.Sequential(
+            SpatialMaxPooling(),
+            N.MaxPool2d(2,2)
+        )
 
 
     def forward(self,x):
@@ -27,4 +29,3 @@ class InceptionMerge(N.Module):
         x4 = self.x4(x)
 
         return x1+x2+x3+x4
-        # return torch.cat([x1,x2,x3,x4],dim=1)
