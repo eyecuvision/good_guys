@@ -10,3 +10,4 @@ from .MinibatchDiscrimination import MinibatchDiscrimination
 from .Reshape import Reshape
 
 from .TemporalConcatenation import TemporalConcatenation
+from .BiFPN import BiFPN
