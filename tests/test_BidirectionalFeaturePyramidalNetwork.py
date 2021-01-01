@@ -23,10 +23,10 @@ class TestBiFPN(TestCase):
             inputs = []
             for i in range(log_2):
                 inputs.append(image)
-                image = image[::2]
+                image = image[:,:,::2,::2]
 
 
-            result = layer(image)
+            result = layer(inputs)
             self.assertEqual(len(result),log_2)
 
             for ind,feature in enumerate(result):
