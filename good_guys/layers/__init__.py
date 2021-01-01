@@ -1,7 +1,5 @@
-from .GlobalAveragePooling1d import GlobalAveragePooling1d
-from .GlobalAveragePooling2d import GlobalAveragePooling2d
-from .GlobalAveragePooling3d import GlobalAveragePooling3d
-from .SpatialMaxPooling import SpatialMaxPooling
+from . import basic
+from . import misc
 
 from .Inception import Inception
 from .InceptionMerge import InceptionMerge
@@ -11,3 +9,4 @@ from .Reshape import Reshape
 
 from .TemporalConcatenation import TemporalConcatenation
 from .BiFPN import BiFPN
+from .DepthwiseSeparableConvolution import DepthwiseSeparableConvolution

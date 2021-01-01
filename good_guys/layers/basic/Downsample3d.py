@@ -1,7 +1,7 @@
 import torch.nn as N
 
 
-class Downsample2d(N.Module):
+class Downsample3d(N.Module):
 
     def __init__(self, scale_factor: int = 2):
         super().__init__()

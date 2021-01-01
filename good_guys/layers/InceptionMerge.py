@@ -1,5 +1,5 @@
 import torch.nn as N
-from .SpatialMaxPooling import SpatialMaxPooling
+from good_guys.layers.basic.SpatialMaxPooling import SpatialMaxPooling
 
 class InceptionMerge(N.Module):
 
