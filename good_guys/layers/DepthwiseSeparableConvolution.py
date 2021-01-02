@@ -15,9 +15,6 @@ class DepthwiseSeparableConvolution(N.Module):
             N.Conv2d(filters,filters,(1,kernel_size),1,(0,self.padding),groups=filters),
             N.BatchNorm2d(filters),
             N.LeakyReLU(inplace=True),
-            N.Conv2d(filters,filters,1),
-            N.BatchNorm2d(filters),
-            N.LeakyReLU(inplace=True)
         )
 
 
