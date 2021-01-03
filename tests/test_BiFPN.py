@@ -1,6 +1,5 @@
 from unittest import TestCase
-from good_guys.layers import BiFPN
-from itertools import product
+from good_guys.layers.pooling import BiFPN
 import torch
 
 
