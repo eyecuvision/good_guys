@@ -1,7 +1,7 @@
 import torch.nn as N
 
 
-class DepthwiseSeparableConvolution(N.Module):
+class DepthwiseSeparableConv2d(N.Module):
 
     def __init__(self,filters : int,kernel_size:int):
         super().__init__()
