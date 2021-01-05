@@ -1,30 +1,45 @@
 import torch.nn as N
 import torch
 
+from good_guys.layers.misc import AttrProxy
+
+
 class FPN(N.Module):
 
-
-    def __init__(self,filters : [int],stride = 2):
+    def __init__(self, filters: [int], stride=2):
         super().__init__()
 
+        self.convs = AttrProxy(self, "convs_")
+        self.upsamples = AttrProxy(self, "upsamples_")
 
-        self.convs = [N.Conv2d(in_channel,in_channel,1) for in_channel in reversed(filters)]
-        self.upsamples = [None] + [N.ConvTranspose2d(in_channel,out_channel,4,stride,1) for in_channel,out_channel in reversed(list(zip(filters[1:],filters[:-1])))]
+        for ind, in_channel in enumerate(reversed(filters)):
+            self.add_module(
+                self.convs(ind),
+                N.Conv2d(in_channel, in_channel, 1)
+            )
 
+        self.add_module(
+            self.upsamples(0),
+            N.Identity()
+        )
+        for ind, (in_channel, out_channel) in enumerate(reversed(list(zip(filters[1:], filters[:-1])))):
+            self.add_module(
+                self.upsamples(ind + 1),
+                N.ConvTranspose2d(in_channel, out_channel, 4, stride, 1)
+            )
 
-    def forward(self,features : [torch.Tensor]):
+    def forward(self, features: [torch.Tensor]):
 
         results = []
-        prev = None
+        prev = features[-1]
 
-        for x,conv,upsample in zip(reversed(features),self.convs,self.upsamples):
+        for ind, x in enumerate(reversed(features)):
+            up_module = self.upsamples[ind]
+            conv_module = self.convs[ind]
 
-            if upsample is None:
-                prev = x
-            else:
-                prev = upsample(prev)
+            prev = up_module(prev)
 
-            x = conv(x)
+            x = conv_module(x)
             prev = x + prev
             results.append(prev)
 

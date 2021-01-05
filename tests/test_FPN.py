@@ -3,7 +3,7 @@ from good_guys.layers.pooling import FPN
 import torch
 
 
-class TestBiFPN(TestCase):
+class TestFPN(TestCase):
     BATCH_SIZES = [1, 16]
     FILTERS = [16, 32, 64, 128, 128]
 
