@@ -22,7 +22,7 @@ class TestTemporalConv2d(TestCase):
 
         batch_size = 64
 
-        inp = torch.randn(1, in_filter, dim, dim)
+        inp = torch.randn(batch_size, in_filter, dim, dim)
         result = layer(inp)
         expected_shape = (1, out_filter, dim, dim)
 

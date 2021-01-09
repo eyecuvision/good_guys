@@ -1,6 +1,6 @@
 from unittest import TestCase
 from good_guys.layers.convs import BatchwiseConv2d
-import torcch
+import torch
 
 class TestTemporalConv2d(TestCase):
     def test_forward(self):
@@ -10,7 +10,7 @@ class TestTemporalConv2d(TestCase):
         dim = 28
         kernel_size = 15
 
-        layer = BatchwiseConv2d( in_filter, kernel_size)
+        layer = BatchwiseConv2d( in_filter,out_filter, kernel_size,1,(kernel_size-1)//2)
 
         inp = torch.randn(batch_size, in_filter, dim, dim)
         result = layer(inp)
@@ -21,7 +21,7 @@ class TestTemporalConv2d(TestCase):
 
         batch_size = 64
 
-        inp = torch.randn(1, in_filter, dim, dim)
+        inp = torch.randn(batch_size, in_filter, dim, dim)
         result = layer(inp)
         expected_shape = (1, out_filter, dim, dim)
 

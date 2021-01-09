@@ -14,6 +14,6 @@ class BatchwiseConv2d(N.Conv2d):
                          padding_mode)
 
     def forward(self, x):
-        result = self.forward(x)
+        result = super().forward(x)
         result = result.view(1, *result.shape)
         return torch.sum(result, dim=1)

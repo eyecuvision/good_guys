@@ -49,7 +49,6 @@ class TestDepthwiseSeperableConv2d(TestCase):
 
 
     def test_filter_shapes(self):
-        #TODO: Implement kernel weight size control.
 
         channels = 64
         kernel = 7
