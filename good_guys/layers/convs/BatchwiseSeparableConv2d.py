@@ -4,7 +4,7 @@ import torch
 from .DepthwiseSeparableConv2d import DepthwiseSeparableConv2d
 
 
-class TemporalDepthwiseSeparableConv2d(N.Module):
+class BatchwiseSeparableConv2d(N.Module):
 
     def __init__(self, filters: int, kernel_size: int):
 
