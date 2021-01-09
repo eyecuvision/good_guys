@@ -1,4 +1,5 @@
 import torch.nn as N
+from good_guys.activations import Mish
 
 
 class DepthwiseSeparableConv2d(N.Module):
@@ -11,10 +12,10 @@ class DepthwiseSeparableConv2d(N.Module):
         self.l = N.Sequential(
             N.Conv2d(filters,filters,(kernel_size,1),1,(self.padding,0),groups=filters),
             N.BatchNorm2d(filters),
-            N.LeakyReLU(inplace=True),
+            Mish(),
             N.Conv2d(filters,filters,(1,kernel_size),1,(0,self.padding),groups=filters),
             N.BatchNorm2d(filters),
-            N.LeakyReLU(inplace=True),
+            Mish(),
         )
 
 
