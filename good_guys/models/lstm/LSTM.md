@@ -1,7 +1,7 @@
 # LSTM
 
 ## Diagram
-![LSTM Diagram](./docs/lstm_architecture.png)
+![LSTM Diagram](../docs/lstm_architecture.png)
 
 
 ## Original Paper

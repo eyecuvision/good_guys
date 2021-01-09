@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "eyecu_good_guys"
-version = "0.2.5"
+version = "0.2.6"
 description = ""
 authors = ["Oguz Vuruskaner <ovuruska@outlook.com>"]
 packages = [

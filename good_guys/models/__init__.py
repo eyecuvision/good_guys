@@ -1,1 +1,1 @@
-from .LSTMCell import LSTMCell
+from good_guys.models.lstm.LSTMCell import LSTMCell
