@@ -1,6 +1,6 @@
 from unittest import TestCase
 import torch
-from good_guys.layers.basic import SpatialMaxPooling
+from good_guys.layers import SpatialMaxPooling
 
 
 class TestSpatialMaxPooling(TestCase):

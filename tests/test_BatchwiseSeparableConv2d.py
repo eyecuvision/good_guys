@@ -1,5 +1,5 @@
 from unittest import TestCase
-from good_guys.layers.convs import TemporalDepthwiseSeparableConv2d
+from good_guys.layers import BatchwiseSeparableConv2d
 import torch
 
 
@@ -11,7 +11,7 @@ class TestTemporalConv2d(TestCase):
         dim = 28
         kernel_size = 15
 
-        layer = TemporalDepthwiseSeparableConv2d(in_filter, kernel_size)
+        layer = BatchwiseSeparableConv2d(in_filter, kernel_size)
 
         inp = torch.randn(batch_size, in_filter, dim, dim)
         result = layer(inp)

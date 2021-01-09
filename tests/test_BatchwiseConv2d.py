@@ -1,5 +1,5 @@
 from unittest import TestCase
-from good_guys.layers.convs import BatchwiseConv2d
+from good_guys.layers import BatchwiseConv2d
 import torch
 
 class TestTemporalConv2d(TestCase):
