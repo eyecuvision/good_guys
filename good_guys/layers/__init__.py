@@ -1,12 +1,8 @@
 from . import basic
-from . import misc
 from . import pooling
 
-from .Inception import Inception
-from .InceptionMerge import InceptionMerge
-from .MinibatchDiscrimination import MinibatchDiscrimination
+from good_guys.layers.complex.Inception import Inception
 
-from .Reshape import Reshape
+from good_guys.layers.basic.Reshape import Reshape
 
-from .TemporalConcatenation import TemporalConcatenation
-from .DepthwiseSeparableConvolution import DepthwiseSeparableConvolution
+from good_guys.layers.convs.DepthwiseSeparableConv2d import DepthwiseSeparableConv2d
