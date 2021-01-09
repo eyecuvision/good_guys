@@ -1,7 +1,7 @@
 import torch.nn as N
 import torch
 
-from good_guys.layers.misc import AttrProxy
+from good_guys.misc import AttrProxy
 
 
 class FPN(N.Module):
