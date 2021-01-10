@@ -3,7 +3,7 @@ from good_guys.layers import BatchwiseSeparableConv2d
 import torch
 
 
-class TestTemporalConv2d(TestCase):
+class TestBatchwiseConv2d(TestCase):
     def test_forward(self):
         batch_size = 1
         in_filter = 64
@@ -27,3 +27,4 @@ class TestTemporalConv2d(TestCase):
         expected_shape = (1, out_filter, dim, dim)
 
         self.assertEqual(expected_shape,result.shape)
+
