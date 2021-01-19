@@ -1,12 +1,7 @@
 import torch.nn as N
 from typing import Union, Tuple
 
-
-def triple(k) -> (int, int,int):
-    if type(k) == int:
-        return k, k,k
-    else:
-        return k
+from good_guys.utils.triple import triple
 
 
 class DepthwiseSeparableConv3d(N.Module):

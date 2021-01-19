@@ -1,12 +1,7 @@
 import torch.nn as N
 from typing import Union, Tuple
 
-
-def double(k) -> (int, int):
-    if type(k) == int:
-        return k, k
-    else:
-        return k
+from good_guys.utils.double import double
 
 
 class DepthwiseSeparableConv2d(N.Module):
