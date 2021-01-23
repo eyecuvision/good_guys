@@ -6,7 +6,8 @@ class EarlyStopping:
     def __init__(
         self,
         patience: int,
-        min_delta: float = 0.0
+        min_delta: float = 0.0,
+        threshold : float = 0.05
     ):
 
         if patience < 1:
@@ -15,11 +16,11 @@ class EarlyStopping:
         if min_delta < 0.0:
             raise ValueError("Argument min_delta should not be a negative number.")
 
-
         self.patience = patience
         self.min_delta = min_delta
         self.counter = 0
         self.best_score = None
+        self.threshold = threshold
 
     def __call__(self,score) -> bool:
 
@@ -29,6 +30,8 @@ class EarlyStopping:
         elif score <= self.best_score + self.min_delta:
             self.counter = 0
             self.best_score = score
+            return False
+        elif abs(score-self.best_score) <= self.threshold:
             return False
         else:
             if self.patience == self.counter:
